@@ -1,0 +1,26 @@
+﻿@using WebApplication2.Models;
+@model User
+
+
+<form method="post">
+    <label for="floatingInput">Title</label>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="UserName" value="@Model.Title">
+    </div>
+    <label for="floatingPassword">Description</label>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Surname" name="UserSurname" value="@Model.Description">
+    </div> 
+        <label for="floatingPassword">Deadline</label>
+    <div class="form-floating">
+        <input type="datetime-local" class="form-control" id="floatingPassword" placeholder="Surname" name="UserSurname" value="@Model.Deadline?.ToString("yyyy-MM-dd hh:mm:ss")">
+    </div>
+
+    <label for="floatingPassword">Isdone</label>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Isdone" name="Isdone" value="@Model.Isdone.ToString()">
+    </div>
+
+        <button type="submit" class="btn btn-success">Success</button>
+
+</form>

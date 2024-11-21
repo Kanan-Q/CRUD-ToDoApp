@@ -1,0 +1,36 @@
+﻿@using WebApplication2.Models;
+@model List<User>
+@{
+
+    DateTime time = DateTime.Now;
+}
+<ul class="list-group list-group-flush">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item"> @item.Title -@item.Description -@item.Deadline</li>
+        <li style="color:aqua">Now time: @time</li>
+        <li>
+
+            @if (!item.Isdone.HasValue && item.Deadline > time)
+            {
+                <p class="text-warning">You have time Add Task  </p>
+            }
+            @if (item.Isdone.HasValue && item.Deadline < time)
+            {
+                <p class="text-danger">Fail</p>
+            }
+            @if (!item.Isdone.HasValue && item.Deadline < time)
+            {
+                <p class="text-success">End</p>
+            }
+        </li>
+        <a href="/Home/View/@item.UserId" class="btn btn-outline-secondary mx-1">Bax</a>
+
+        @if (item.Deadline < time && item.Isdone.HasValue) { }
+        else
+        {
+            <a href="/Home/Update/@item.UserId" class="btn btn-outline-success mx-1">Edit</a>
+        }
+        <a href="/Home/Delete/@item.UserId" class="btn btn-outline-danger mx-1">Delete</a>
+    }
+</ul>

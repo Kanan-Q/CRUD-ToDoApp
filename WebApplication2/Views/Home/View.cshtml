@@ -1,0 +1,18 @@
+﻿@using WebApplication2.Models;
+@model User
+
+<form action="/Home/View" method="post">
+    <label for="floatingInput">Title</label>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="UserName" value="@Model.Title">
+    </div>
+    <label for="floatingPassword">Description</label>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Surname" name="UserSurname" value="@Model.Description">
+    </div>  
+    <label for="floatingPassword">Deadline</label>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Surname" name="UserSurname" value="@Model.Deadline">
+    </div>
+</form>
+
